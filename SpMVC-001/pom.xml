@@ -54,7 +54,7 @@
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
-			<version>3.0.3</version>
+			<version>3.0.0</version>
 		</dependency>
 		<!-- Spring JDBC -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
@@ -106,6 +106,12 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.2</version>
 			<scope>provided</scope>
+		</dependency>
+				<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+		<dependency>
+		    <groupId>javax.servlet</groupId>
+		    <artifactId>jstl</artifactId>
+		    <version>1.2</version>
 		</dependency>
 
 		<dependency>
