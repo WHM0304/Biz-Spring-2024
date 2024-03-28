@@ -3,20 +3,15 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8" />
-<title>Insert title here</title>
-<link href="${rootPath }/static/css/main.css?001518" rel="stylesheet"/>
-</head>
+<html lang="ko">
+<%@ include file="/WEB-INF/views/includes/head.jspf" %>
 <body>
-	<header class="head">
-		<h1>HOME</h1>
-		<nav class="menu">
-			<a href="${rootPath}">홈</a>
-			<a href="${rootPath}/user/login">로그인</a> 
-			<a href="${rootPath}/user/join">회원가입</a>
-		</nav>
-	</header>
+	<%@ include file="/WEB-INF/views/includes/header.jspf" %>
+	
+	<section class="w3-container w3-cell-row w3-padding-16">
+		<article class="w3-container w3-cell w3-purple">상품정보</article>
+		<article class="w3-container w3-cell w3-teal">주문정보</article>
+		<article class="w3-container w3-cell w3-yellow">거래처정보</article>
+	</section>
 </body>
 </html>
