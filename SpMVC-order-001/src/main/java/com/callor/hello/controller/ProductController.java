@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import com.callor.hello.models.ProductVO;
 import com.callor.hello.persistance.ProductDao;
@@ -50,40 +49,6 @@ public class ProductController {
 			}
 		} catch (Exception e) {
 			return "product/input";
-		}
-		
-	}
-	@RequestMapping(value="/detail" , method=RequestMethod.GET)
-	public String detail(@RequestParam("pcode") String pCode , Model model) {
-		log.debug(pCode);
-		ProductVO proVO = productDao.findByPK(pCode);
-		model.addAttribute("PRODUCT",proVO);
-		
-		return "product/detail";
-	}
-	
-	// 여기부터 다시해 
-	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String update() {
-		return null;
-		
-	}
-	
-	
-	
-	
-	@RequestMapping(value="/delete" , method=RequestMethod.GET)
-	public String delete(@RequestParam("p_code") String pCode, Model model) {
-		
-		int result = productDao.delete(pCode);
-		
-		
-		if(result >0) {
-			log.debug("정상");
-			return "redirect:/product";
-		} else {
-			log.debug("오류");
-			return "redirect:/product/detail?p_code=" + pCode;
 		}
 		
 	}

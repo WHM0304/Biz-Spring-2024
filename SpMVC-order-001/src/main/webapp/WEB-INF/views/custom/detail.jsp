@@ -21,7 +21,7 @@
 	
 	const rootPath = "${rootPath}"
 </script>
-<script src="${rootPath}/static/js/customer.js?2024-03-29-00216"></script>
+<script src="${rootPath}/static/js/customer.js?2024-03-29-006"></script>
 <body>
 	<%@ include file="/WEB-INF/views/includes/header.jspf"%>
 
