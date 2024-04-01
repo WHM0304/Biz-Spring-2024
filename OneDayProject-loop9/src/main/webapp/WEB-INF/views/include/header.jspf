@@ -2,10 +2,10 @@
     pageEncoding="UTF-8"%>
 <%@ taglib uri ="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
-<header class="w3-container w3-green w3-padding-24 w3-center">
+<header class="w3-container w3-black w3-padding-24 w3-center">
 	<h1>Loop9 매입매출관리</h1>
 </header>
-<nav class="w3-bar w3-black">
+<nav class="w3-bar w3-brown">
 	<a href="${rootPath}" class="w3-bar-item  w3-button w3-mobile">HOME</a>
 	<a href="${rootPath}/iolist" class="w3-bar-item w3-button w3-mobile">상품관리</a>
 	<a href="${rootPath}/user/login" class="w3-bar-item w3-button w3-mobile ">로그인</a>

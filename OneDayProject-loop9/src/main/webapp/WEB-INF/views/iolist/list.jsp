@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html>
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
-
+<script src="${rootPath}/static/js/list.js?2024-04-01-001"></script>
+<script>
+const rootPath = "${rootPath}"
+</script>
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>리스트</h1>
+	<a href="${rootPath}/iolist/insert">추가하기</a>
 	<table>
 		<thead>
 			<tr>
@@ -23,9 +27,9 @@
 				<th>판매합계</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="HM-list_body">
 			<c:forEach items="${IOLIST}" var="IOLIST">
-				<tr>
+				<tr data-io_seq="${IOLIST.io_seq}">
 					<td>${IOLIST.io_seq}</td>
 					<td>${IOLIST.io_date}</td>
 					<td>${IOLIST.io_time }</td>
@@ -45,9 +49,9 @@
 			<td></td>
 			<td></td>
 			<td></td>
-			<td>1</td>
-			<td>${total.io_impTotal}</td>
-			<td>${total.io_expTotal}</td>
+			<td></td>
+			<td><!-- ${total} --></td>
+			<td><!-- ${total} --></td>
 			</tr>
 		</tbody>
 
