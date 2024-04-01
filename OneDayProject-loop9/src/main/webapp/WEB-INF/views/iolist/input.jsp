@@ -40,23 +40,22 @@ label {
 		data-input="${IOLIST.io_input} ">
 		<div>
 			<label>상품명</label><input name="io_pname" value="${IOLIST.io_pname}"
-				class="w3-input w3-right" />
+				class="w3-input w3-right HM-io_pname" />
 		</div>
 		<label>선택</label>
 		<div class="HM-radio">
 
-			<input type="radio" name="io_input" value="1"
-				class="HM-input_1 w3-radio ">매입 <input type="radio"
-				name="io_input" value="2" class="HM-input_2 w3-radio ">매출
+			<input type="radio" name="io_input" value="1" class="HM-input_1 w3-radio ">매입
+				 <input type="radio" name="io_input" value="2" class="HM-input_2 w3-radio ">매출
 
 		</div>
 		<div>
 			<label>단가</label><input name="io_price" value="${IOLIST.io_price }"
-				class="w3-input" />
+				class="w3-input HM-io_price" />
 		</div>
 		<div>
-			<label>수량</label><input type="number" name="io_quan"
-				value="${IOLIST.io_quan }" class="w3-input" />
+			<label>수량</label><input name="io_quan"
+				value="${IOLIST.io_quan }" class="w3-input HM-io_quan" />
 		</div>
 		<div>
 			<button type="button" class="w3-button HM-btn_add w3-right w3-yellow">추가하기</button>

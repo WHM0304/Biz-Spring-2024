@@ -4,10 +4,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = form.dataset.input;
   const input_1 = document.querySelector(".HM-input_1");
   const input_2 = document.querySelector(".HM-input_2");
-  if (input === "1") {
-    input_1.checked = "checked";
-  } else if (input === "2") {
-    input_2.checked = "checked";
+
+  if (input == 1) {
+    // alert("매입");
+    input_1.checked = "true";
+  }
+  if (input == 2) {
+    // alert("매출");
+    input_2.checked = "true";
   }
 
   btn_add?.addEventListener("click", (e) => {
@@ -34,6 +38,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const input_time = form.querySelector(".HM-time");
     input_date.value = data_date;
     input_time.value = data_time;
+    const io_pname = document.querySelector(".HM-io_pname");
+    const io_price = document.querySelector(".HM-io_price");
+    const io_quan = document.querySelector(".HM-io_quan");
+    if (!io_pname.value) {
+      alert("상품이름을 입력해주세요");
+      io_pname.focus();
+      return false;
+    }
+    if (input_1.checked === false && input_2.checked === false) {
+      alert("분류를입력해주세요");
+      return false;
+    }
+    if (!io_price.value) {
+      alert("상품단가를 입력해주세요");
+      io_price.focus();
+
+      return false;
+    }
+    if (!io_quan.value) {
+      alert("상품갯수를 입력해주세요");
+      io_quan.focus();
+      return false;
+    }
+    if (isNaN(io_quan.value)) {
+      alert("숫자형으로 입력해주세요");
+      io_quan.select();
+      return false;
+    }
+    if (isNaN(io_price.value)) {
+      alert("숫자형으로 입력해주세요");
+      io_price.select();
+      return false;
+    }
+
     form.submit();
+    // alert(input_1.checked);
+    // alert(input_2.checked);
   });
 });
