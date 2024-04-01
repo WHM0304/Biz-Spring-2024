@@ -22,6 +22,6 @@ public class IoVO {
 	private String io_pname;
 	private int io_price;
 	private int io_quan;
-	private int io_Total;
+	private int io_total;
 
 }

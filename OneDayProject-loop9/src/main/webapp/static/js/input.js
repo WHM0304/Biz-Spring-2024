@@ -1,8 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
   const btn_add = document.querySelector("button.HM-btn_add");
   const form = document.querySelector("form.HM-form");
+  const input = form.dataset.input;
+  const input_1 = document.querySelector(".HM-input_1");
+  const input_2 = document.querySelector(".HM-input_2");
+  if (input === "1") {
+    input_1.checked = "checked";
+  } else if (input === "2") {
+    input_2.checked = "checked";
+  }
 
-  btn_add.addEventListener("click", (e) => {
+  btn_add?.addEventListener("click", (e) => {
     const today = new Date();
     let year = today.getFullYear();
     let month_obj = today.getMonth() + 1;

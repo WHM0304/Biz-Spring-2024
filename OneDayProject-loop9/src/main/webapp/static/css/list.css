@@ -1,1 +1,22 @@
 @charset "UTF-8";
+html {
+  height: 100vh;
+}
+body {
+  height: 100%;
+}
+table.HM-table {
+  width: 70%;
+  margin: 0 auto;
+  height: calc(50vh);
+  overflow: auto;
+  border-collapse: separate !important;
+  text-align: right;
+}
+
+div.btn_box {
+  a {
+    display: inline-block;
+    margin-bottom: 2rem;
+  }
+}

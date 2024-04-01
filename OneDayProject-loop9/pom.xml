@@ -49,14 +49,12 @@
 			<artifactId>mybatis</artifactId>
 			<version>3.5.15</version>
 		</dependency>
-		<!-- mybatis-spring -->
 		<!-- https://mvnrepository.com/artifact/org.mybatis/mybatis-spring -->
 		<dependency>
 			<groupId>org.mybatis</groupId>
 			<artifactId>mybatis-spring</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-		<!-- Spring JDBC -->
 		<!-- https://mvnrepository.com/artifact/org.springframework/spring-jdbc -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -78,13 +76,13 @@
 
 
 
-
 		<!-- Logging -->
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
 			<artifactId>logback-classic</artifactId>
 			<version>1.5.3</version>
 		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -92,7 +90,6 @@
 			<version>1.18.32</version>
 			<scope>provided</scope>
 		</dependency>
-
 
 		<!-- Servlet -->
 		<dependency>
@@ -107,12 +104,14 @@
 			<version>2.2</version>
 			<scope>provided</scope>
 		</dependency>
-				<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+
+		<!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
-		    <groupId>javax.servlet</groupId>
-		    <artifactId>jstl</artifactId>
-		    <version>1.2</version>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 		</dependency>
+
 
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>

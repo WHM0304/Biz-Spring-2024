@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.whm0304.loop9.persistance.IolistDao">
+ 
+	<select id="selectAll">
+		 SELECT io_seq , io_date, io_time , io_input, io_pname ,
+			  if(io_input=1 , io_price,'') as io_import ,
+			  if(io_input=2 , io_price,'') as io_export , 
+			 io_quan, if(io_input=1 ,io_quan * io_price,'') as io_impTotal ,
+			 if(io_input=2 ,io_quan * io_price, '' ) as io_expTotal 
+			 FROM tbl_iolist 
+			 GROUP BY io_seq 
+	</select> 
+ 		
+ 	<insert id="insert">
+ 		 INSERT INTO tbl_iolist 
+			 (io_pname , io_input, io_price, io_quan ,io_total , io_date , io_time) 
+			  VALUES
+			  (#{io_pname},#{io_input},#{io_price},#{io_quan},
+			  #{io_price} * #{io_quan} , #{io_date}, #{io_time})  
+ 	</insert>
+ 	
+	<update id="update">
+		UPDATE tbl_iolist
+		SET io_pname = #{io_pname} , io_date = #{io_date}  ,
+			  io_time = #{io_time}, io_input = #{io_input} ,
+			   io_price = #{io_price} , io_quan = #{io_quan} ,
+			   io_total = #{io_quan} * #{io_price} 
+		WHERE io_seq = #{io_seq} 
+		
+	</update> 
+ </mapper> 
+ 

@@ -11,7 +11,7 @@
 	<!-- BasicDataSource : 자동으로 DB 연결 Pool 을 만들어준다 -->
 	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"  value="com.mysql.cj.jdbc.Driver"/>
-		<property name="username"  value="root"/>
+		<property name="username"  value="root2"/>
 		<property name="password" value="!Biz8080"/>
 		<property name="url" value="jdbc:mysql://localhost:3306/iolistdb"/>
 	</bean>

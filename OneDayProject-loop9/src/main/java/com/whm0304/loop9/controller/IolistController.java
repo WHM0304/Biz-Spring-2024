@@ -30,7 +30,7 @@ public class IolistController {
 		List<IolistVO> total = iolistDao.Sum();
 		log.debug("정보{}", total.toString());
 		model.addAttribute("IOLIST", IoList);
-		model.addAttribute("IOTOTAL", total);
+		model.addAttribute("TOTAL", total);
 		return "iolist/list";
 
 	}
@@ -40,11 +40,21 @@ public class IolistController {
 		return "iolist/input";
 	}
 
-//	@RequestMapping(value="/insert",method=RequestMethod.POST)
-//	public String insert(IolistVO vo) {
-//		return null;
-
-//	}
+	@RequestMapping(value="/insert",method=RequestMethod.POST)
+	public String insert(IoVO vo) {
+		int result = 0;
+		try {
+			result = iolistDao.insert(vo);
+			if (result > 0) {
+				return "redirect:/iolist";
+			} else {
+				return "redirect:/iolist/input";
+			}
+		} catch (Exception e) {
+			return "iolist/input";
+		}
+		
+	}
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public String detail(@RequestParam("io_seq") String ioSeq, Model model) {
@@ -64,16 +74,16 @@ public class IolistController {
 	}
 	
 	@RequestMapping(value="/update", method= RequestMethod.GET)
-	public String update(@RequestParam("ioSeq") String io_seq, Model model) {
+	public String update(@RequestParam("io_seq") String io_seq, Model model) {
 		IoVO IoVO = iolistDao.findById(io_seq);
 		model.addAttribute("IOLIST",IoVO);
 		return "iolist/input";
 	}
 	@RequestMapping(value="/update", method=RequestMethod.POST)
-	public String update(IolistVO vo) {
-//		int result = iolistDao.update(vo);
-		log.debug(vo.toString());
-		return "redirect:/iolist/input";
+	public String update(IoVO vo) {
+		int result = iolistDao.update(vo);
+//		log.debug("데이터확인{}",vo);
+		return "redirect:/iolist";
 		
 	}
 

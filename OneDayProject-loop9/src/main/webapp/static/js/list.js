@@ -18,8 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
       document.location.href = `${rootPath}/iolist/delete?ioSeq=${io_seq}`;
     }
   });
-  btn_update.addEventListener("click", (e) => {
+  btn_update?.addEventListener("click", (e) => {
     const io_seq = e.target.dataset.io_seq;
-    document.location.href = `${rootPath}/iolist/update?ioSeq=${io_seq}`;
+    // if(){
+
+    // }
+    document.location.href = `${rootPath}/iolist/update?io_seq=${io_seq}`;
   });
 });

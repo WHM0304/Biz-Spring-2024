@@ -34,7 +34,7 @@
 				<h5>${CUST.c_tel}</h5>
 			<div class="w3-section">
 				<input data-ccode="${CUST.c_code}" type="button" value="수정"  class="btn_update w3-button w3-green "/>
-				<input data-ccode="${CUST.c_code}" type="button" value="삭제" class= "btn_delete w3-button w3-red"/>
+				<input data-ccode="${CUST.c_code}" type="button" value="삭제" class= "btn_delete w3-button w3-red "/>
 			</div>
 			</div>
 		</div>

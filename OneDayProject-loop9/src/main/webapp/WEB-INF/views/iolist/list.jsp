@@ -7,13 +7,17 @@
 <%@ include file="/WEB-INF/views/include/head.jspf"%>
 <script src="${rootPath}/static/js/list.js?2024-04-01-001"></script>
 <script>
-const rootPath = "${rootPath}"
+	const rootPath = "${rootPath}"
 </script>
+<link href="${rootPath}/static/css/list.css?2024-04-01-016" rel="stylesheet">
 <body>
 	<%@ include file="/WEB-INF/views/include/header.jspf"%>
 	<h1>리스트</h1>
-	<a href="${rootPath}/iolist/insert">추가하기</a>
-	<table>
+	<div class="w3-container btn_box">
+		<a href="${rootPath}/iolist/insert"
+			class="w3-button w3-brown w3-round-large w3-right">추가하기</a>
+	</div>
+	<table class="w3-table-all w3-hoverable HM-table">
 		<thead>
 			<tr>
 				<th>No</th>
@@ -41,8 +45,10 @@ const rootPath = "${rootPath}"
 					<td>${IOLIST.io_expTotal }</td>
 				</tr>
 			</c:forEach>
-			
-			<tr>
+
+
+		</tbody>
+		<tr>
 			<td></td>
 			<td>합계</td>
 			<td></td>
@@ -50,10 +56,9 @@ const rootPath = "${rootPath}"
 			<td></td>
 			<td></td>
 			<td></td>
-			<td><!-- ${total} --></td>
-			<td><!-- ${total} --></td>
-			</tr>
-		</tbody>
+			<td>${TOTAL[0].io_impTotal}</td>
+			<td>${TOTAL[0].io_expTotal }</td>
+		</tr>
 
 	</table>
 </body>
