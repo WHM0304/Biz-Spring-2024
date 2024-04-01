@@ -24,6 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   btn_update?.addEventListener("click", (e) => {
     const p_code = e.target.dataset.pcode;
-    document.location.href = `${rootPath}/product/update?p_code=${p_code}`;
+    document.location.href = `${rootPath}/product/update?pcode=${p_code}`;
   });
 });

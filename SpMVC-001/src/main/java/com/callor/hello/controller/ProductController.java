@@ -64,8 +64,21 @@ public class ProductController {
 	
 	// 여기부터 다시해 
 	@RequestMapping(value="/update", method=RequestMethod.GET)
-	public String update() {
-		return null;
+	public String update(@RequestParam("pcode") String pCode , Model model) {
+		ProductVO vo = productDao.findByPK(pCode);
+		model.addAttribute("PRODUCT", vo);
+		return "product/input";
+		
+	}
+	@RequestMapping(value="/update", method=RequestMethod.POST)
+	public String update(ProductVO vo) {
+//		log.debug("dsdasd{}",vo);
+		int result = productDao.update(vo);
+		if(result >0) {
+			return "redirect:/product";
+		} else {
+			return "redirect:/input";
+		}
 		
 	}
 	

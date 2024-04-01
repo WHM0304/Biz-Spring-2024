@@ -17,10 +17,10 @@
 <body>
 	<form method="POST">
 		<div class="HM-input_box w3-container">
-			<input name="p_code" placeholder="상품코드" />
-			<input name="p_name" placeholder="상품이름" />
-			<input name="p_item" placeholder="상품분류" />
-			<input name="p_price" placeholder="상품가격"/>
+			<input name="p_code" placeholder="상품코드"  value="${PRODUCT.p_code }"/>
+			<input name="p_name" placeholder="상품이름" value="${PRODUCT.p_name }"/>
+			<input name="p_item" placeholder="상품분류" value="${PRODUCT.p_item }"/>
+			<input name="p_price" placeholder="상품가격" value="${PRODUCT.p_price }"/>
 			<input type="submit" value="저장" > 
 		</div>
 	</form>
