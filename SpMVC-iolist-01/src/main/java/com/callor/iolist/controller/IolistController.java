@@ -12,11 +12,13 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.callor.iolist.models.IolistVO;
+import com.callor.iolist.models.SearchDto;
 import com.callor.iolist.models.UserVO;
 import com.callor.iolist.persistance.IolistDao;
 import com.callor.iolist.utils.NamesValue;
@@ -35,11 +37,13 @@ public class IolistController {
 	
 
 	@RequestMapping(value={"/",""}, method=RequestMethod.GET)
-	public String home(Model model) {
-		
+	public String home(@ModelAttribute("SEARCH") SearchDto searchDto,Model model) {
+		log.debug("pname{} , sdate{} , edate{}" 
+				,searchDto.getPname(),searchDto.getSdate(),searchDto.getEdate());
 		model.addAttribute("BODY","IOLIST_HOME");
-		List<IolistVO> iolist = iolistDao.selectAll();
+		List<IolistVO> iolist = iolistDao.selectSearchAll(searchDto);
 		model.addAttribute("IOLIST",iolist);
+		model.addAttribute("SEARCH",searchDto);
 		return "layout";
 	}
 	
@@ -140,6 +144,14 @@ public class IolistController {
 		int ret = iolistDao.delete(io_seq);
 		return "redirect:/iolist";
 	}
+	
+	
+	@ModelAttribute("SEARCH")
+	private SearchDto searchDto() {
+	
+		return new SearchDto();
+	}
+	
 	
 	
 	
