@@ -28,6 +28,21 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+
+
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-web -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>5.2.25.RELEASE</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+
 		<!-- Spring WebMVC Framework Auto Dependency spring-aop, spring-beans, 
 			spring-context, spring-core spring-expression, spring-jcl, spring-web, spring-webmvc -->
 
@@ -111,11 +126,6 @@
 
 
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${org.springframework-version}</version>
-		</dependency>
 
 		<!-- AspectJ -->
 		<dependency>
