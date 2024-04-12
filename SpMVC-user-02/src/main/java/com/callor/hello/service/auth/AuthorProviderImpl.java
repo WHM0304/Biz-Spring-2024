@@ -32,8 +32,6 @@ public class AuthorProviderImpl implements AuthenticationProvider{
 		UsernamePasswordAuthenticationToken token
 		= new UsernamePasswordAuthenticationToken(user,u_password, grantList);
 		
-		
-		
 		return token;
 	}
 
