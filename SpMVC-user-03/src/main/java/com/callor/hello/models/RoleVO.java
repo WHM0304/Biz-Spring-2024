@@ -11,13 +11,11 @@ import lombok.ToString;
 @Setter
 @ToString
 @Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class UserVO {
+@NoArgsConstructor
+public class RoleVO {
 	
-	
-	private String username;
-	private String password;
-	private String email;
+	private String r_username; // FK
+	private String r_role;
 
 }
