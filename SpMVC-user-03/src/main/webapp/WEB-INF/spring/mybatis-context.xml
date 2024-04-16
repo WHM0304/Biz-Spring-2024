@@ -10,21 +10,41 @@
 	<bean id="ds" class="org.apache.commons.dbcp2.BasicDataSource">
 		<property name="driverClassName"
 			value="com.mysql.cj.jdbc.Driver" />
-		 <property name="url" value="jdbc:mysql://localhost:3306/userDB"/> 
-		 <property name="username" value="root"/> 
-		 <property name="password" value="!Biz8080"/> 
+		<property name="url"
+			value="jdbc:mysql://localhost:3306/userDB" />
+		<property name="username" value="root" />
+		<property name="password" value="!Biz8080" />
 	</bean>
 
 	<bean id="factoryBean"
 		class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds" />
-		<property name="typeAliasesPackage" value="com.callor.hello.models"/>
-		<property name="mapperLocations" value="/WEB-INF/spring/mapper/*-mapper.xml" />
+		<property name="typeAliasesPackage"
+			value="com.callor.hello.models" />
+		<property name="mapperLocations"
+			value="/WEB-INF/spring/mapper/*-mapper.xml" />
 	</bean>
 
 
 	<bean class="org.mybatis.spring.SqlSessionTemplate">
 		<constructor-arg ref="factoryBean" />
 	</bean>
- 	 <mybatis-spring:scan base-package="com.callor.hello.dao"/>  
+
+	<!-- Spring jdbc 를 사용하여 transaction 자동화 하기 설정 -->
+	<!-- 
+	단 mybatis-context.xml 이 root 영역에 있을때는
+	servlet-context.xml 에 proxy.. 을 true 로 설정해 준다.
+	  -->
+	<tx:annotation-driven />
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<property name="dataSource" ref="ds"></property>
+	</bean>
+
+
+
+
+
+	<mybatis-spring:scan
+		base-package="com.callor.hello.dao" />
 </beans>
