@@ -10,6 +10,7 @@
 	<sec:http auto-config="true" use-expressions="true">
 		<sec:intercept-url pattern="/admin"
 			access="hasRole('ADMIN')" />
+		
 		<sec:intercept-url pattern="/**" access="permitAll()"/>
 		
 		<!-- login-page : 로그인 화면을 보여줄 URL, controller 지정  -->
@@ -27,13 +28,25 @@
 			 default-target-url="/"
 		/>
 		
-		<sec:logout logout-url="/user/logout"/>
+		<sec:logout logout-url="/user/logout"
+					logout-success-url="/"
+		/>
+		
+		
+		<sec:access-denied-handler
+			error-page="/auth/denied"
+		/>
 		
 	</sec:http>
 
 	<sec:authentication-manager>
 		<sec:authentication-provider ref="authProviderImpl"/>
 	</sec:authentication-manager>
+	
+<!-- 	<bean id="passEncoder" 
+class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+	
+	</bean> -->
 
 
 
