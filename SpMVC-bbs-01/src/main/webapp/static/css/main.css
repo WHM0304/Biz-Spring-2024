@@ -1,35 +1,31 @@
 @charset "UTF-8";
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 header.main.header {
   display: flex;
-  flex-direction: column;
-}
-nav.main.nav {
-  background-color: black;
-  color: yellow;
-  ul {
-    list-style: none;
-    display: flex;
-    gap: 10px;
-    li {
-      padding: 0.6rem;
-    }
-  }
-}
-div.main {
-  text-align: center;
-  display: flex;
-  padding: 1rem;
+  padding: 20px;
+  justify-content: center;
   h1 {
-    margin: 0 auto;
+    flex: 2;
+    text-align: right;
   }
+  div {
+    flex: 1;
+    text-align: right;
+  }
+}
+
+nav.main.nav {
+  color: yellow;
+  background-color: black;
   ul {
     display: flex;
-    gap: 10px;
     list-style: none;
-    align-items: center;
+    gap: 10px;
     li {
-      margin-left: auto;
+      padding: 10px;
     }
   }
 }
