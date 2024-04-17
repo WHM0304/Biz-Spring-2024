@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+header.main.header {
+  display: flex;
+  flex-direction: column;
+}
+nav.main.nav {
+  background-color: black;
+  color: yellow;
+  ul {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+    li {
+      padding: 0.6rem;
+    }
+  }
+}
+div.main {
+  text-align: center;
+  display: flex;
+  padding: 1rem;
+  h1 {
+    margin: 0 auto;
+  }
+  ul {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    align-items: center;
+    li {
+      margin-left: auto;
+    }
+  }
+}
