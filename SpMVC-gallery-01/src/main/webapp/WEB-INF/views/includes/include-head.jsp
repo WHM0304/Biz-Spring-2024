@@ -13,7 +13,7 @@
 	padding: 0;
 }
 </style>
-<link rel="stylesheet" href="${rootPath}/static/css/main.css?2024-04-14-111">
+<link rel="stylesheet" href="${rootPath}/static/css/main.css?2024-04-14-221">
 </head>
 <script>
 	// js 파일에서 사용할 rootPath 변수 선언 
