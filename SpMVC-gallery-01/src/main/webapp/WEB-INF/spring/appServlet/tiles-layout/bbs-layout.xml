@@ -40,7 +40,7 @@
 
 	<definition name="bbs/notice/*" extends="bbs">
 		<put-attribute name="aside-right"
-			value="/WEB-INF/views/notice/free/{1}.jsp" cascade="true">
+			value="/WEB-INF/views/bbs/notice/{1}.jsp" cascade="true">
 		</put-attribute>
 	</definition>
 

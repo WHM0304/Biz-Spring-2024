@@ -22,6 +22,10 @@ public class BBsFreeController {
 	public String write() {
 		return null;
 	}
+	@RequestMapping(value="/like" ,method=RequestMethod.GET)
+	public String like() {
+		return null;
+	}
 	
 
 
