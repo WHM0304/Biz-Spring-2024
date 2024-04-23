@@ -48,3 +48,7 @@ div.image {
     background-color: #fff;
   }
 }
+
+textarea.base64 {
+  display: none;
+}

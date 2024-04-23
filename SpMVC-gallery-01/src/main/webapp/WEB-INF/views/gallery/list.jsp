@@ -4,7 +4,8 @@
 <c:set var="rootPath" value="${pageContext.request.contextPath}" />
 <link rel="stylesheet"
 	href="${rootPath }/static/css/gallery.css?2024-04-22-002" />
-
+<link rel="stylesheet"
+	href="${rootPath }/static/css/gallery_list.css?2024-04-23-002" />
 
 <section class="gallery">
 	<article class="gallery">
@@ -15,8 +16,8 @@
 
 		<c:forEach items="${GALLERYS }" var="GA">
 			<div class="gallery card">
-				<img src="${rootPath }/static/images/no_image.png "
-					alt="${GA.subject }" width="200px" />
+				<img src="${GA.g_image} "
+					alt="${GA.g_subject }" width="200px" />
 				<div>
 					<p>${GA.g_subject}</p>
 				</div>
