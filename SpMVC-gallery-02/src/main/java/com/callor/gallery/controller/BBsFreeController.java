@@ -11,7 +11,7 @@ public class BBsFreeController {
 	
 	@RequestMapping(value={"","/"},method=RequestMethod.GET)
 	public String home() {
-		return null;
+		return "bbs/free/list";
 	}
 
 }
