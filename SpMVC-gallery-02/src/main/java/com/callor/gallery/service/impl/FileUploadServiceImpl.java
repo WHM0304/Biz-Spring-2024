@@ -1,6 +1,7 @@
 package com.callor.gallery.service.impl;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -26,7 +27,7 @@ public class FileUploadServiceImpl implements FileUploadService{
 	public FileUploadServiceImpl(ServletContext context) {
 		super();
 		this.context = context;
-		// tomcat 폴더가 아닌 Server 의 로컬 스토리지 임의의 폴더
+		// tomcat 폴더가 아닌 Server 의 로컬 스토리지 임의의 폴
 		folder = "/app/upload";
 	}
 
@@ -88,8 +89,16 @@ public class FileUploadServiceImpl implements FileUploadService{
 
 	@Override
 	public List<String> filesUpload(MultipartHttpServletRequest files) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		
+		// 업로드된 멀티파일을 List type 의 MultipartFile 로 분해하기
+		List<MultipartFile> result = files.getFiles("image_files"); 
+		List<String> resultFileNames = new ArrayList<String>();
+		for(MultipartFile f : result) {
+			String resName = this.fileUpload(f);
+			resultFileNames.add(resName);
+		}
+		
+		return resultFileNames;
 	}
 
 }
