@@ -17,13 +17,19 @@
       >
     </section>
     <section class="gallery container">
-      <div class="gallery card" th:each="GA, item: ${GALLERYS}">
+      <div class="gallery card" th:each="GA:${GALLERYS}">
         <div>
-          <img
-            th:src="${GA.g_image}"
-            width="200px"
-            src="../../../static/images/no_Image.jpg"
-          />
+          <a
+            th:href="@{/upload/{image}(image=${GA.g_up_image})}"
+            target="_new"
+          >
+            <img
+              th:src="@{/upload/{image}(image=${GA.g_up_image})}"
+              width="200px"
+              src="../../../static/images/no_Image.jpg"
+              alt="${GA.g_origin_image}"
+            />
+          </a>
         </div>
         <h3 th:text="${GA.g_subject}" class="gallery subject">
           이미지 제목
