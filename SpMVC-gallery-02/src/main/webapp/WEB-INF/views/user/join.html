@@ -6,6 +6,16 @@
   layout:decorate="~{/home}"
 >
   <section layout:fragment="content">
-    <h1>회원가입</h1>
+    <fieldset>
+      <legend>회원가입</legend>
+    <link rel="stylesheet" href="../../../static/css/user.css" th:href="@{/static/css/user.css}" />
+    <form method="POST" class="user join">
+      <div><input type="text" placeholder="USERNMAE" /></div>
+      <div><input type="text" placeholder="PASSWORD" /></div>
+      <div><input type="text" placeholder="Email" /></div>
+      <div><input type="text" placeholder="TEl" /></div>
+      <div><input type="submit" value="회원가입" /></div>
+    </fieldset>
+    </form>
   </section>
 </html>
