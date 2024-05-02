@@ -12,8 +12,12 @@
  		SELECT * FROM tbl_users WHERE username = #{username}
  	</select>
  	
- 	<insert id="insert" parameterType="GalleryVO">
- 		
+ 	<insert id="insert" >
+ 		INSERT INTO tbl_users(
+ 			username,password,email,tel
+ 		) VALUES(
+ 			#{username},#{password},#{email},#{tel}
+ 		)
  	</insert>
  	<update id="update"></update>
  	<delete id="delete"></delete>

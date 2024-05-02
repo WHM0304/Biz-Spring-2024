@@ -12,17 +12,12 @@
       th:href="@{/static/css/gallery.css}"
     />
     <section class="gallery">
-      <a href="../gallery/input.html" th:href="@{/gallery/insert}"
-        >이미지 업로드</a
-      >
+      <a href="../gallery/input.html" th:href="@{/gallery/insert}">이미지 업로드</a>
     </section>
     <section class="gallery container">
       <div class="gallery card" th:each="GA:${GALLERYS}">
         <div>
-          <a
-            th:href="@{/upload/{image}(image=${GA.g_up_image})}"
-            target="_new"
-          >
+          <a th:href="@{/upload/{image}(image=${GA.g_up_image})}" target="_new">
             <img
               th:src="@{/upload/{image}(image=${GA.g_up_image})}"
               width="200px"
@@ -31,9 +26,7 @@
             />
           </a>
         </div>
-        <h3 th:text="${GA.g_subject}" class="gallery subject">
-          이미지 제목
-        </h3>
+        <h3 th:text="${GA.g_subject}" class="gallery subject">이미지 제목</h3>
       </div>
     </section>
   </section>
