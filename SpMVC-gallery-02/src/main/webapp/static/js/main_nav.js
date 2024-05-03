@@ -9,7 +9,7 @@ JSON type 의 객체
 
 */
 const NAV_INDEX = {
-  home: { url: "/" },
+  home: { url: "" },
   notice: { url: "bbs/notice" },
   free: { url: "bbs/free" },
 };
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const navs = Object.keys(NAV_INDEX);
   navs.forEach((key) => {
     if (pathArr.join(" ".includes(key))) {
-      document.querySelector(`nav.main li${key}`)?.classList.add("active");
+      document.querySelector(`nav.main li.${key}`)?.classList.add("active");
     }
   });
 });
