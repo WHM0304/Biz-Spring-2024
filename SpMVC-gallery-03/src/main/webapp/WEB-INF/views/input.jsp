@@ -10,7 +10,18 @@
 <title>여기는 제목</title>
 </head>
 <body>
-	<h1>반갑습니다</h1>
+	<link rel="stylesheet" href="${rootPath }/css/input.css?2024-05-14-001" />
+	<script src="${rootPath }/js/input.js"></script>
+	<form method="POST"  class="image input" enctype="multipart/form-data">
+		<div><input placeholder="제목" name="g_subject"></div>
+		<div><textarea placeholder="내용" rows="10" name="g_content"></textarea></div>
+		<div><input placeholder="작성자" name="g_writer"></div>
+		<div><input placeholder="비밀번호" name="g_password" type="password"></div>
+		<div><input type="file" multiple="multiple" accept="image/*" name="files" id="files"></div>
+		<div class="represent"><img src="${rootPath }/images/no_Image.jpg" class="represent"/></div>
+		<div class="thumnail"></div>
+		<div><input type="submit" value="저장"></div>
+	</form>
 
 </body>
 </html>
