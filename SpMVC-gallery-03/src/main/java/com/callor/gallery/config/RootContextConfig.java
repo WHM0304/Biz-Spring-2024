@@ -28,9 +28,12 @@ public class RootContextConfig {
 		resolver.setDefaultEncoding("UTF-8");
 		
 		return resolver;
-		
-		
-		
+
+	}
+	
+	@Bean(name="upLoadPath")
+	public String upLoadPath() {
+		return "c:/app/upload";
 	}
 
 }
