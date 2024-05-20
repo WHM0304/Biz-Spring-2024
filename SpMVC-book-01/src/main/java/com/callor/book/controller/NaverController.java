@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +45,7 @@ public class NaverController {
 	}
 	@ResponseBody
 	@RequestMapping(value="/books/{title}",method=RequestMethod.GET)
-	public String book(@PathVariable(name="title") String title) {
+	public ResponseEntity<String> book(@PathVariable(name="title") String title) {
 		String KEY_Naver_Client_Id = "X-Naver-Client-Id";
 		String KEY_Naver_Client_Secret = "X-Naver-Client-Secret";
 		
@@ -66,7 +68,7 @@ public class NaverController {
 				"https://openapi.naver.com/v1/search/book.json?query=" + title;
 		
 //		String result = restTemplate.getForObject(naver_book_url, String.class,params);
-		String result = restTemplate.getForObject(naver_book_url, String.class, params);
+		ResponseEntity<String> result = restTemplate.exchange(naver_book_url,HttpMethod.GET, params, String.class);
 		
 		return result;
 	}
