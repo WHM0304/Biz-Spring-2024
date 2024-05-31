@@ -5,6 +5,8 @@ import java.util.Locale;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,10 +37,16 @@ public class HomeController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Locale locale, Model model) {
-			
+	public String home( Model model) {
+			List<GalleryVO> gallerys = galleryService.selectAll();
+			model.addAttribute("GALLERYS" , gallerys);
 		return "home";
 	}
+	
+	
+	
+	
+	
 	
 	
 	
@@ -51,9 +59,13 @@ public class HomeController {
 	 * MultipartHttpServletRequest 를 사용하여 받고
 	 * 이때는 절대 @RequestParam() 속성을 사용하면 안된다.
 	 */
+	@GetMapping(value="/insert")
+	public String insert() {
+		return "insert";
+	}
 	
-	@PostMapping(value="/")
-	public String home(GalleryVO galleryVO, MultipartHttpServletRequest files) {
+	@PostMapping(value="/insert")
+	public String insert(GalleryVO galleryVO, MultipartHttpServletRequest files) {
 		log.debug("갤러리 {}" , galleryVO.toString());
 		
 		// files : form 의 input type = "file" 의 name 속성을 사용
@@ -66,8 +78,34 @@ public class HomeController {
 		galleryService.createGallerys(galleryVO, files);
 		
 		
-		return "home";
+		return "redirect:/";
 		
 	}
+	
+	
+	
+	
+	@GetMapping("/detail/{id}")
+	public String detail(@PathVariable("id") String id, Model model) {
+		
+		GalleryVO gallery = galleryService.selectGalleryOne(id);
+		model.addAttribute("GALLERY",gallery);
+		return "detail";
+	}
+	
+	@GetMapping("/delete/{id}")
+	public String delete(@PathVariable("id") String id) {
+		
+		int ret = galleryService.delete(id);
+		
+		return "redirect:/";
+	}
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -1,5 +1,7 @@
 package com.callor.gallery.models;
 
+import java.util.List;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -17,6 +19,8 @@ public class GalleryVO {
 	
 	
 	private String g_id;
+	private String g_date;
+	private String g_time;
 	private String g_subject;
 	private String g_content;
 	private String g_writer;
@@ -27,5 +31,8 @@ public class GalleryVO {
 	 * 		VO 칼럼 이름을 만들면 절대 안됨
 	 */
 	private String g_image;
+	
+	
+	List<ImagesVO> g_images;
 
 }

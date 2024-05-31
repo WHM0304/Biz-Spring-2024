@@ -67,16 +67,31 @@ public class FileServiceImpl  implements FileService{
 	public List<ImagesVO> filesUp(MultipartHttpServletRequest files) {
 		List<MultipartFile> fileList = files.getFiles(Names.FILES);
 		List<ImagesVO> images= new ArrayList<>();
+		int index = 0;
 		for(MultipartFile file : fileList) {
+			
 			String resultFileName = this.fileUp(file);
 			ImagesVO vo = ImagesVO.builder()
+					.i_id(UUID.randomUUID().toString())
 					.i_up_image(resultFileName)
-					.i_origin_name(file.getOriginalFilename())
+					.i_seq(index++)
+					.i_origin_image(file.getOriginalFilename())
 					.build();
 			
 			images.add(vo);
 		}
 		return images;
+	}
+
+	@Override
+	public void fileDelete(String i_up_image) {
+		
+		File deleteFile = new File(uploadDir,i_up_image);
+		if(deleteFile.exists()) {
+			deleteFile.delete();
+		}
+		
+		
 	}
 
 }
